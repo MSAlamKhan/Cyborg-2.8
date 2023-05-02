@@ -11,21 +11,17 @@ import Chart, { useChart } from '../../../../components/chart';
 // ----------------------------------------------------------------------
 
 BankingWidgetSummary.propTypes = {
-  sx: PropTypes.object,
-  chart: PropTypes.object,
-  color: PropTypes.string,
-  title: PropTypes.string,
-  total: PropTypes.number,
-  percent: PropTypes.number,
   icon: PropTypes.oneOfType([PropTypes.element, PropTypes.string]),
+  color: PropTypes.string,
+  trending: PropTypes.string,
+  chart: PropTypes.object,
+  sx: PropTypes.object,
 };
 
 export default function BankingWidgetSummary({
-  title,
-  total,
   icon,
-  percent,
   color = 'primary',
+  trending,
   chart,
   sx,
   ...other
@@ -77,7 +73,7 @@ export default function BankingWidgetSummary({
   return (
     <Card
       sx={{
-        width: 1,
+        minWidth: '200px',
         boxShadow: 0,
         color: theme.palette[color].darker,
         bgcolor: theme.palette[color].lighter,
@@ -99,14 +95,7 @@ export default function BankingWidgetSummary({
           bgcolor: theme.palette[color].dark,
         }}
       />
-
-      <Stack spacing={1} sx={{ p: 3 }}>
-        <Typography variant="subtitle2">{title}</Typography>
-
-        <Typography variant="h3">{fCurrency(total)}</Typography>
-
-        <TrendingInfo percent={percent} />
-      </Stack>
+      <TrendingInfo trending={trending}/>
 
       <Chart type="area" series={[{ data: series }]} options={chartOptions} height={120} />
     </Card>
@@ -116,21 +105,17 @@ export default function BankingWidgetSummary({
 // ----------------------------------------------------------------------
 
 TrendingInfo.propTypes = {
-  percent: PropTypes.number,
+  trending: PropTypes.string,
 };
 
-function TrendingInfo({ percent }) {
+function TrendingInfo({ trending }) {
   return (
-    <Stack direction="row" alignItems="center" flexWrap="wrap" spacing={0.5}>
-      <Iconify icon={percent < 0 ? 'eva:trending-down-fill' : 'eva:trending-up-fill'} />
+    <Stack direction="row" alignItems="center" flexWrap="wrap" spacing={0.5} sx={{ p:3, mt:10 }}>
+      <Iconify icon='eva:trending-up-fill' />
 
       <Typography variant="subtitle2" component="span">
-        {percent > 0 && '+'}
-
-        {fPercent(percent)}
-
         <Box component="span" sx={{ opacity: 0.72, typography: 'body2' }}>
-          {' than last month'}
+          {trending}
         </Box>
       </Typography>
     </Stack>

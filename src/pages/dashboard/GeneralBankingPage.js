@@ -35,32 +35,83 @@ export default function GeneralBankingPage() {
 
       <Container maxWidth={themeStretch ? false : 'xl'}>
         <Grid container spacing={3}>
-          <Grid item xs={12} md={7}>
-            <Stack direction={{ xs: 'column', sm: 'row' }} spacing={3}>
+          <Grid item>
+            <Stack direction={{ xs: 'column', sm: 'row' }} sx={{ flexWrap:'wrap', columnGap:12, rowGap:4 }}>
               <BankingWidgetSummary
-                title="Income"
-                icon="eva:diagonal-arrow-left-down-fill"
-                percent={2.6}
-                total={18765}
+                icon="eva:diagonal-arrow-right-up-fill"
+                trending='Credit Bureau'
                 chart={{
-                  series: [111, 136, 76, 108, 74, 54, 57, 84],
+                  series: [76, 108, 74, 54, 57, 84, 111, 136],
                 }}
               />
-
               <BankingWidgetSummary
-                title="Expenses"
-                color="warning"
                 icon="eva:diagonal-arrow-right-up-fill"
-                percent={-0.5}
-                total={8938}
+                trending='Bank Statement (Deposit)'
+                color='warning'
                 chart={{
-                  series: [111, 136, 76, 108, 74, 54, 57, 84],
+                  series: [76, 108, 74, 54, 57, 84, 111, 136],
+                }}
+              />
+              <BankingWidgetSummary
+                icon="eva:diagonal-arrow-right-up-fill"
+                trending='Digital Footprint'
+                color='warning'
+                chart={{
+                  series: [76, 108, 74, 54, 57, 84, 111, 136],
+                }}
+              />
+              <BankingWidgetSummary
+                icon="eva:diagonal-arrow-right-up-fill"
+                trending='Payment Data (Lending)'
+                color='warning'
+                chart={{
+                  series: [76, 108, 74, 54, 57, 84, 111, 136],
+                }}
+              />
+              <BankingWidgetSummary
+                icon="eva:diagonal-arrow-right-up-fill"
+                trending='Bank Statement (Lending)'
+                color='warning'
+                chart={{
+                  series: [76, 108, 74, 54, 57, 84, 111, 136],
+                }}
+              />
+              <BankingWidgetSummary
+                icon="eva:diagonal-arrow-right-up-fill"
+                trending='Credit Card'
+                color='warning'
+                chart={{
+                  series: [76, 108, 74, 54, 57, 84, 111, 136],
+                }}
+              />
+              <BankingWidgetSummary
+                icon="eva:diagonal-arrow-right-up-fill"
+                trending='Customer Information'
+                color='warning'
+                chart={{
+                  series: [76, 108, 74, 54, 57, 84, 111, 136],
+                }}
+              />
+              <BankingWidgetSummary
+                icon="eva:diagonal-arrow-right-up-fill"
+                trending='Target Computation'
+                color='warning'
+                chart={{
+                  series: [76, 108, 74, 54, 57, 84, 111, 136],
+                }}
+              />
+              <BankingWidgetSummary
+                icon="eva:diagonal-arrow-right-up-fill"
+                trending='Lorem Ipsum'
+                color='warning'
+                chart={{
+                  series: [76, 108, 74, 54, 57, 84, 111, 136],
                 }}
               />
             </Stack>
           </Grid>
 
-          <Grid item xs={12} md={5}>
+          {/* <Grid item xs={12} md={5}>
             <BankingCurrentBalance list={_bankingCreditCard} />
           </Grid>
 
@@ -157,7 +208,7 @@ export default function GeneralBankingPage() {
                 img="/assets/illustrations/characters/character_11.png"
               />
             </Stack>
-          </Grid>
+          </Grid> */}
         </Grid>
       </Container>
     </>

@@ -62,9 +62,7 @@ export default function AuthWithSocial() {
 
       <Stack direction="row" justifyContent="center" spacing={2}>
         <IconButton onClick={handleGoogleLogin}>
-          <Box sx={{ mb:10 }}>
-            <GoogleIcon/>
-          </Box>
+        <GoogleIcon/>
         </IconButton>
 
         {/* <IconButton color="inherit" onClick={handleGithubLogin}>
